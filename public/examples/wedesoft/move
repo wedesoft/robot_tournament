@@ -29,14 +29,8 @@ def move(view)
   end
 end
 board = ARGV[0]
-player = board.count('0') >= board.count('x') ? '0' : 'x'
-defend = move board.tr(player, 'a').tr('0x', 'b')
-attack = move board.tr(player, 'b').tr('0x', 'a')
-if defend
-  puts defend
-elsif attack
-  puts attack
-else
-  puts [4, 0, 2, 6, 8, 1, 3, 5, 7].find { |i| board.slice(i, 1) == '-' }
-end
+swap = board.count('0') >= board.count('x') ? '0x' : 'x0'
+puts move(board.tr(swap, 'ab')) ||
+     move(board.tr(swap, 'ba')) ||
+     [0, 8, 6, 2, 4, 1, 3, 5, 7].find { |i| board.slice(i, 1) == '-' }
 

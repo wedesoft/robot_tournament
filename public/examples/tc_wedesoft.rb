@@ -13,7 +13,7 @@ class TC_TicTacToe < Test::Unit::TestCase
   end
 
   def test_best
-    assert_equal "4\n", `ruby1.9 ./wedesoft/move '---------'`
+    assert_equal "0\n", `ruby1.9 ./wedesoft/move '---------'`
   end
 
 end
