@@ -1,56 +1,31 @@
 #!/usr/bin/env ruby
 def move(view)
   case view
-  when /-bb....../
-    0
-  when /b-b....../
-    1
-  when /bb-....../
-    2
-  when /...-bb.../
-    3
-  when /...b-b.../
-    4
-  when /...bb-.../
-    5
-  when /......-bb/
-    6
-  when /......b-b/
-    7
-  when /......bb-/
-    8
-  when /-..b..b../
-    0
-  when /b..-..b../
-    3
-  when /b..b..-../
-    6
-  when /.-..b..b./
-    1
-  when /.b..-..b./
-    4
-  when /.b..b..-./
-    7
-  when /..-..b..b/
-    2
-  when /..b..-..b/
-    5
-  when /..b..b..-/
-    8
-  when /-...b...b/
-    0
-  when /b...-...b/
-    4
-  when /b...b...-/
-    8
-  when /..-.b.b../
-    2
-  when /..b.-.b../
-    4
-  when /..b.b.-../
-    6
-  else
-    nil
+  when /-bb....../ then 0
+  when /b-b....../ then 1
+  when /bb-....../ then 2
+  when /...-bb.../ then 3
+  when /...b-b.../ then 4
+  when /...bb-.../ then 5
+  when /......-bb/ then 6
+  when /......b-b/ then 7
+  when /......bb-/ then 8
+  when /-..b..b../ then 0
+  when /b..-..b../ then 3
+  when /b..b..-../ then 6
+  when /.-..b..b./ then 1
+  when /.b..-..b./ then 4
+  when /.b..b..-./ then 7
+  when /..-..b..b/ then 2
+  when /..b..-..b/ then 5
+  when /..b..b..-/ then 8
+  when /-...b...b/ then 0
+  when /b...-...b/ then 4
+  when /b...b...-/ then 8
+  when /..-.b.b../ then 2
+  when /..b.-.b../ then 4
+  when /..b.b.-../ then 6
+  else nil
   end
 end
 board = ARGV[0]
