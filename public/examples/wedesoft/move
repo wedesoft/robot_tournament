@@ -1,0 +1,67 @@
+#!/usr/bin/env ruby
+def move(view)
+  case view
+  when /-bb....../
+    0
+  when /b-b....../
+    1
+  when /bb-....../
+    2
+  when /...-bb.../
+    3
+  when /...b-b.../
+    4
+  when /...bb-.../
+    5
+  when /......-bb/
+    6
+  when /......b-b/
+    7
+  when /......bb-/
+    8
+  when /-..b..b../
+    0
+  when /b..-..b../
+    3
+  when /b..b..-../
+    6
+  when /.-..b..b./
+    1
+  when /.b..-..b./
+    4
+  when /.b..b..-./
+    7
+  when /..-..b..b/
+    2
+  when /..b..-..b/
+    5
+  when /..b..b..-/
+    8
+  when /-...b...b/
+    0
+  when /b...-...b/
+    4
+  when /b...b...-/
+    8
+  when /..-.b.b../
+    2
+  when /..b.-.b../
+    4
+  when /..b.b.-../
+    6
+  else
+    nil
+  end
+end
+board = ARGV[0]
+player = board.count('0') >= board.count('x') ? '0' : 'x'
+defend = move board.tr(player, 'a').tr('0x', 'b')
+attack = move board.tr(player, 'b').tr('0x', 'a')
+if defend
+  puts defend
+elsif attack
+  puts attack
+else
+  puts [4, 0, 2, 6, 8, 1, 3, 5, 7].find { |i| board.slice(i, 1) == '-' }
+end
+
